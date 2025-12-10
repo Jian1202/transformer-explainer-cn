@@ -1,19 +1,33 @@
-# Transformer Explainer: Interactive Learning of Text-Generative Models
+# Transformer Explainer（中文汉化版）
 
-Transformer Explainer is an interactive visualization tool designed to help anyone learn how Transformer-based models like GPT work. It runs a live GPT-2 model right in your browser, allowing you to experiment with your own text and observe in real time how internal components and operations of the Transformer work together to predict the next tokens. Try Transformer Explainer at http://poloclub.github.io/transformer-explainer and watch a demo video on YouTube https://youtu.be/TFUc41G2ikY.<br/><br/>
+> 本仓库基于原版 Transformer Explainer，已完成界面和文案的中文化，便于中文用户体验和教学。模型、交互与可视化逻辑与原版保持一致，仅文本、标签等做了本地化调整。
+
 [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 [![arxiv badge](https://img.shields.io/badge/arXiv-2408.04619-red)](https://arxiv.org/abs/2408.04619)
 
 <a href="https://youtu.be/TFUc41G2ikY" target="_blank"><img width="100%" src='https://github.com/user-attachments/assets/0a4d8888-6555-4df5-bc71-77f1299115c3'></a>
 
-## Live Demo
-Try Transformer Explainer: http://poloclub.github.io/transformer-explainer
+## 说明
+- 本版本仅做中文本地化，功能与原版一致，遵循原仓库 MIT 许可。
+- 若需使用或参考原英文版，请访问：http://poloclub.github.io/transformer-explainer
 
-## Research Paper
+## 本地运行
 
-[**Transformer Explainer: Interactive Learning of Text-Generative Models**](https://arxiv.org/abs/2408.04619).
-Aeree Cho, Grace C. Kim, Alexander Karpekov, Alec Helbling, Zijie J. Wang, Seongmin Lee, Benjamin Hoover, Duen Horng Chau.
-_Poster, IEEE VIS 2024._
+#### 环境
+
+- Node.js v20 或更高
+- NPM v10 或更高
+
+#### 步骤
+
+```bash
+git clone https://github.com/poloclub/transformer-explainer.git
+cd transformer-explainer
+npm install
+npm run dev
+```
+
+然后访问 http://localhost:5173 体验中文界面。
 
 ## How to run locally
 
