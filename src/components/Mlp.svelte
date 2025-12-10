@@ -38,7 +38,7 @@
 		data-click="mlp-step-title"
 	>
 		<div class="w-max">
-			<TextbookTooltip id="mlp">MLP</TextbookTooltip>
+			<TextbookTooltip id="mlp">MLP 前馈网络</TextbookTooltip>
 		</div>
 	</div>
 
