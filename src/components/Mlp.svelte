@@ -15,6 +15,7 @@
 	const firstLayerlColor = 'bg-purple-200';
 	const secondLayerColor = 'bg-indigo-200';
 	const outputColor = 'bg-blue-200';
+	const queryHeadVectorColor = 'bg-purple-400';
 
 	let isHovered = false;
 
@@ -42,6 +43,7 @@
 			unsubscribe();
 		};
 	});
+	$: isLastBlock = $blockIdx === $modelMeta?.layer_num - 1;
 </script>
 
 <div class={classNames('mlp', 'mlpUp', 'mlpDown', className)} data-click="mlp-step">
@@ -77,7 +79,7 @@
 						<div class={`vector flex flex-col  ${firstLayerlColor}`}>
 							<VectorCanvas colorScale="purple" active={vectorHoverIdx === index} />
 							<div
-								class="sub-vector x1-12 head1 absolute"
+								class={`sub-vector x1-12 head1 ${queryHeadVectorColor} absolute`}
 								bind:this={headCursors[`token${index}_out`]}
 							></div>
 							<div class="sub-vector head-rest grow"></div>
@@ -86,12 +88,12 @@
 				{/each}
 			</div>
 			<Tooltip triggeredBy={'.step.mlp .initial .cell'} class="popover" placement="right">
-				vector({$modelMeta.dimension})</Tooltip
+				向量（{$modelMeta.dimension} 维）</Tooltip
 			>
 			<OperationGroup type="dropout" id={'mlp-first-dropout'} />
 			<OperationGroup type="residual-end" id={'embedding-residual'} />
-			<OperationGroup type="ln" id={'mlp-first-ln'} />
 			<OperationGroup type="residual-start" id={'mlp-residual'} />
+			<OperationGroup type="ln" id={'mlp-first-ln'} />
 		</div>
 		<div class="layer mlpUp mlpDown second-layer flex justify-between">
 			<div class="column mlp-mid-column">
@@ -108,7 +110,7 @@
 			</div>
 		</div>
 		<Tooltip triggeredBy={'.step.mlp .mlp-mid-column .cell'} class="popover" placement="right">
-			vector({$modelMeta.dimension * 4})</Tooltip
+			向量（{$modelMeta.dimension * 4} 维）</Tooltip
 		>
 		<div class="layer mlpDown out-layer relative flex justify-between">
 			<div class="activation">
@@ -123,7 +125,9 @@
 					{/each}
 				</div>
 				<OperationGroup type="residual-end" id={'mlp-residual'} />
-				<OperationGroup type="ln" id={'mlp-second-ln'} />
+				{#if isLastBlock}
+					<OperationGroup type="ln" id={'mlp-second-ln'} />
+				{/if}
 				<div
 					class="column out mlp-out-column"
 					class:last-block={$blockIdx === $modelMeta.layer_num - 1}
@@ -137,7 +141,7 @@
 					{/each}
 				</div>
 				<Tooltip triggeredBy={'.step.mlp .mlp-out-column .cell'} class="popover" placement="right">
-					vector({$modelMeta.dimension})</Tooltip
+					向量（{$modelMeta.dimension} 维）</Tooltip
 				>
 			</div>
 		</div>

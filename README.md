@@ -1,143 +1,110 @@
-# Transformer Explainer（中文汉化版）
+# Transformer Explainer 中文版
 
-> 基于原版 [Transformer Explainer](http://poloclub.github.io/transformer-explainer) 的中文本地化版本，完整保留原版功能与交互逻辑，仅对界面文本、标签和提示信息进行汉化，方便中文用户学习与教学使用。
+Transformer Explainer 中文版是在[原项目](https://github.com/poloclub/transformer-explainer)基础上维护的中文教学版本。它通过浏览器内运行的 GPT-2 Small 和交互式可视化，帮助中文读者理解词元化、嵌入、自注意力、MLP、采样等文本生成环节。
 
-[![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
-[![arXiv](https://img.shields.io/badge/arXiv-2408.04619-red)](https://arxiv.org/abs/2408.04619)
+[MIT License](https://opensource.org/licenses/MIT)
+[CHI 2026](https://dl.acm.org/doi/10.1145/3772318.3791725)
 
-<a href="https://youtu.be/TFUc41G2ikY" target="_blank">
-  <img width="100%" src="https://github.com/user-attachments/assets/0a4d8888-6555-4df5-bc71-77f1299115c3" alt="Transformer Explainer 演示视频">
-</a>
+## 在线体验
 
-## ✨ 项目特色
+- 中文版：[https://Jian1202.github.io/transformer-explainer-cn/](https://Jian1202.github.io/transformer-explainer-cn/)
+- 英文原版：[https://poloclub.github.io/transformer-explainer/](https://poloclub.github.io/transformer-explainer/)
 
-- **完整中文化界面**：所有操作界面、标签、提示和说明均已汉化
-- **功能无损**：保持与原版完全一致的模型交互、可视化与分析功能
-- **开箱即用**：支持本地快速部署，无需额外配置
-- **教学友好**：适合中文环境下的Transformer模型教学与演示
+## 项目边界
 
-## 📋 版本说明
+- 汉化范围包括活动界面、交互提示、教程和长篇教学文章。
+- 底层模型仍是主要面向英文的 GPT-2 Small，并未替换为中文生成模型。
+- 中文文本可以由 GPT-2 分词器编码，但切分方式和生成效果不等同于中文模型；建议使用英文提示文本体验实时生成。
+- 中文版包含词元计数、窄屏布局、部署路径等本地适配，与原版并非逐文件完全一致。
+- 上游更新采用人工审核、选择性同步，避免自动同步覆盖本地化内容。
 
-- 本仓库为原版 [Transformer Explainer](https://github.com/poloclub/transformer-explainer) 的中文汉化版本
-- 仅对界面文本进行本地化处理，核心功能、交互逻辑与可视化组件保持不变
-- 遵循原项目的 MIT 开源协议
-- **原版地址**：[http://poloclub.github.io/transformer-explainer](http://poloclub.github.io/transformer-explainer)
 
-## 🚀 快速开始
 
-### 环境要求
+## 功能
 
-- Node.js v20 或更高版本
-- NPM v10 或更高版本
+- 在浏览器中运行 GPT-2 Small，并逐步展示下一词元预测过程。
+- 查看词元嵌入、可学习的位置嵌入、Q/K/V、多头自注意力和 MLP。
+- 调整温度以及 Top-k、Top-p 采样参数。
+- 展开计算区域、权重弹窗和交互教程。
+- 使用真实 GPT-2 分词结果限制输入长度并显示词元计数。
 
-### 安装与运行
+首次实时加载模型时需要下载约 600 MB 的分片文件；后续访问会优先读取浏览器缓存。移动端默认使用预计算示例，以避免自动下载完整模型，完整交互建议使用桌面浏览器。
 
-1. **克隆仓库**
-   ```bash
-   git clone https://github.com/Jian1202/transformer-explainer-cn.git
-   cd transformer-explainer-cn
-   ```
+## 本地运行
 
-2. **安装依赖**
-   ```bash
-   npm install
-   ```
+环境要求：
 
-3. **启动开发服务器**
-   ```bash
-   npm run dev
-   ```
+- Node.js 20 或更高版本
+- npm 10 或更高版本
 
-4. **访问应用**
-   打开浏览器，访问 [http://localhost:5173](http://localhost:5173) 即可体验中文界面。
-
-## 🌐 在线体验
-
-访问中文汉化版在线演示或直接访问原版英文界面：
-- **中文版**：[https://jian1202.github.io/transformer-explainer-cn](https://jian1202.github.io/transformer-explainer-cn)
-- **英文原版**：[http://poloclub.github.io/transformer-explainer](http://poloclub.github.io/transformer-explainer)
-
-## 📖 功能特性
-
-- **交互式学习**：通过可视化界面深入理解Transformer模型的工作原理
-- **注意力机制可视化**：直观展示自注意力机制的权重分布
-- **文本生成过程分析**：逐步分解文本生成过程，揭示模型决策逻辑
-- **多层级解释**：从词元级别到层级的全方位模型解释
-- **实时交互**：支持参数调整与实时结果反馈
-
-## 🏗️ 项目结构
-
-```
-transformer-explainer-cn/
-├── src/                    # 源代码目录
-│   ├── locales/           # 多语言文件（含中文翻译）
-│   ├── components/        # 组件文件
-│   └── ...
-├── public/                # 静态资源
-├── package.json           # 项目配置
-├── README.md              # 说明文档（本文件）
-└── ...
+```bash
+git clone https://github.com/Jian1202/transformer-explainer-cn.git
+cd transformer-explainer-cn
+npm ci
+npm run dev
 ```
 
-## 📄 引用与致谢
+开发服务器默认为 [http://localhost:5173](http://localhost:5173)。
 
-### 原项目团队
-Transformer Explainer 由佐治亚理工学院团队开发：
-- [Aeree Cho](https://aereeeee.github.io/)
-- [Grace C. Kim](https://www.linkedin.com/in/chaeyeonggracekim/)
-- [Alexander Karpekov](https://alexkarpekov.com/)
-- [Alec Helbling](https://alechelbling.com/)
-- [Jay Wang](https://zijie.wang/)
-- [Seongmin Lee](https://seongmin.xyz/)
-- [Benjamin Hoover](https://bhoov.com/)
-- [Polo Chau](https://poloclub.github.io/polochau/)
+常用检查命令：
 
-### 引用格式
-如需在研究中引用本项目，请使用以下 BibTeX 格式：
+```bash
+npm run check:localization
+npm run check
+npm run build
+```
+
+`npm run check:localization` 是只读扫描，不会自动改写源码。  
+生产构建使用 `/transformer-explainer-cn` 基础路径，以适配 GitHub Pages。
+
+## 目录说明
+
+```text
+src/
+├── components/       # 可视化、教程、文章与交互组件
+├── constants/        # 示例模型输出与视觉常量
+├── locales/zh-CN/    # 短界面文案、动态提示和术语清单
+├── routes/           # SvelteKit 页面与布局
+├── store/            # 交互和模型状态
+└── utils/            # 模型推理、采样、动画与教程逻辑
+static/
+├── article_assets/   # 教学文章配图
+├── model-v2/         # GPT-2 ONNX 分片
+└── preview/          # 分享预览图
+```
+
+
+
+## 上游维护
+
+本仓库保留 `upstream` 合并关系。  
+同步上游时会人工检查依赖、模型逻辑、教学事实、部署配置和中文文案，不采用定时自动同步工作流。  
+若修改用户可见字符串，请同时运行汉化检查，并确认技术专名属于允许清单或已有人工审核上下文。
+
+## 论文与原项目团队
+
+正式论文：
+
+[Transformer Explainer: Learning LLM Transformers with Interactive Visual Explanation and Experimentations](https://dl.acm.org/doi/10.1145/3772318.3791725), Proceedings of the 2026 CHI Conference on Human Factors in Computing Systems.
+
+原项目由 Aeree Cho、Grace C. Kim、Alexander Karpekov、Seongmin Lee、Alec Helbling、Benjamin Hoover、Zijie J. Wang、Minsuk Kahng 和 Duen Horng Chau 等佐治亚理工学院研究者共同完成。  
+请以[原仓库](https://github.com/poloclub/transformer-explainer)和正式论文中的署名为准。
 
 ```bibtex
-@article{cho2024transformer,
-  title = {Transformer Explainer: Interactive Learning of Text-Generative Models},
-  shorttitle = {Transformer Explainer},
-  author = {Cho, Aeree and Kim, Grace C. and Karpekov, Alexander and Helbling, Alec and Wang, Zijie J. and Lee, Seongmin and Hoover, Benjamin and Chau, Duen Horng},
-  journal = {IEEE VIS Poster},
-  year = {2024}
+@inproceedings{cho2026transformer,
+  title={Transformer Explainer: Learning LLM Transformers with Interactive Visual Explanation and Experimentations},
+  author={Cho, Aeree and Kim, Grace C. and Karpekov, Alexander and Lee, Seongmin and Helbling, Alec and Hoover, Benjamin and Wang, Zijie J. and Kahng, Minsuk and Chau, Duen Horng},
+  booktitle={Proceedings of the 2026 CHI Conference on Human Factors in Computing Systems},
+  pages={1--21},
+  year={2026}
 }
 ```
 
-## 📜 开源协议
-
-本项目基于 [MIT License](LICENSE) 开源。
-
-## 🤝 贡献与反馈
-
-- 如有翻译问题或改进建议，欢迎提交 Issue 或 Pull Request
-- 中文相关问题可联系本仓库维护者
-- 功能性问题建议反馈至原仓库：[原项目 Issues](https://github.com/poloclub/transformer-explainer/issues/new/choose)
-
-## 🔗 相关项目推荐
-
-- [**Diffusion Explainer**](https://poloclub.github.io/diffusion-explainer) - 可视化学习Stable Diffusion如何将文本提示转化为图像
-- [**CNN Explainer**](https://poloclub.github.io/cnn-explainer) - 卷积神经网络交互式学习工具
-- [**GAN Lab**](https://poloclub.github.io/ganlab) - 浏览器中的生成对抗网络实验平台
-
-## 📧 联系信息
-
-- **原项目联系人**：[Aeree Cho](https://aereeeee.github.io/)
-- **中文版维护**：本仓库维护者
-
----
-
-*本中文汉化版仅用于学习与研究目的，所有模型与算法版权归原项目所有。*
-
----
-
-**温馨提示**：使用过程中如遇技术问题，建议优先参考原项目文档与 Issues。
 
 
+## 许可证与反馈
 
+项目沿用原项目的 [MIT License](LICENSE)。
 
-
----
-
-此汉化版于2026年停止同步上游原项目
+翻译、教学表述和中文版适配问题可在[中文版仓库](https://github.com/Jian1202/transformer-explainer-cn/issues)反馈；  
+原版功能问题也可参考[上游 Issues](https://github.com/poloclub/transformer-explainer/issues)。

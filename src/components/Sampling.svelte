@@ -29,7 +29,7 @@
 		<div class="sampling-type">
 			<div class="title flex items-center gap-[2px]">
 				<TextbookTooltip id="sampling">
-					<div>采样方式 Sampling</div></TextbookTooltip
+					<div>采样方式</div></TextbookTooltip
 				>
 				<!-- <HelpPopover
 					id="sampling-help"

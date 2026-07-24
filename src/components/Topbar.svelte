@@ -26,7 +26,12 @@
 	</div>
 	<div class="icons flex items-center gap-3">
 		<!-- arxiv -->
-		<a href="https://arxiv.org/abs/2408.04619" target="_blank" data-click="pdf-btn">
+		<a
+			href="https://dl.acm.org/doi/pdf/10.1145/3772318.3791725"
+			target="_blank"
+			data-click="pdf-btn"
+			aria-label="查看 CHI 2026 论文"
+		>
 			<svg
 				class="h-6 w-6 text-gray-800 dark:text-white"
 				aria-hidden="true"
@@ -44,7 +49,12 @@
 			</svg>
 		</a>
 		<!-- video -->
-		<a href="https://www.youtube.com/watch?v=ECR4oAwocjs" target="_blank" data-click="ytb-btn">
+		<a
+			href="https://www.youtube.com/watch?v=ECR4oAwocjs"
+			target="_blank"
+			data-click="ytb-btn"
+			aria-label="观看视频教程"
+		>
 			<svg
 				class="h-6 w-6 text-gray-800 dark:text-white"
 				aria-hidden="true"
@@ -63,9 +73,10 @@
 		</a>
 		<!-- repo -->
 		<a
-			href="https://github.com/poloclub/transformer-explainer"
+			href="https://github.com/Jian1202/transformer-explainer-cn"
 			target="_blank"
 			data-click="github_btn"
+			aria-label="查看中文版 GitHub 仓库"
 		>
 			<svg
 				class="h-6 w-6 text-gray-800 dark:text-white"
@@ -132,6 +143,40 @@
 			flex-shrink: 0;
 			svg {
 				fill: theme('colors.gray.600');
+			}
+		}
+	}
+
+	@media (max-width: 1180px) {
+		.top-bar {
+			flex-wrap: wrap;
+			gap: 0.5rem 1rem;
+			padding: 0.5rem 1rem 0.9rem;
+
+			.inputs {
+				order: 3;
+				flex-basis: 100%;
+				min-width: 0;
+			}
+
+			.icons {
+				margin-left: auto;
+			}
+		}
+	}
+
+	@media (max-width: 640px) {
+		.top-bar {
+			.logo {
+				font-size: 1.55rem;
+
+				.cn {
+					font-size: 1.05rem;
+				}
+			}
+
+			.icons {
+				gap: 0.5rem;
 			}
 		}
 	}

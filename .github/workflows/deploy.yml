@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: 'main'  # 确保这里是你仓库的主分支名，可能是 main 或 master
+    branches: 'main'
 
 # 赋予 GITHUB_TOKEN 允许部署的权限
 permissions:
@@ -12,7 +12,7 @@ permissions:
 
 # 允许并发部署
 concurrency:
-  group: "pages"
+  group: 'pages'
   cancel-in-progress: true
 
 jobs:
@@ -29,7 +29,7 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Build
         run: npm run build
@@ -37,8 +37,6 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # SvelteKit adapter-static 默认输出到 build 文件夹
-          # 如果你的 svelte.config.js 里改了 pages 路径，这里也要改
           path: 'build'
 
   deploy:
