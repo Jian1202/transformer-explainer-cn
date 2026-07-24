@@ -174,7 +174,7 @@
 		data-click="embedding-step-title"
 	>
 		<div class="title-text flex w-max items-center gap-1">
-			嵌入 Embedding
+			嵌入
 			<ZoomInOutline></ZoomInOutline>
 		</div>
 	</div>
@@ -184,7 +184,7 @@
 			<!-- token -->
 			<div class="column token-string relative">
 				{#if isEmbeddingExpanded}<div class="subtitle embedding-detail">
-						<TextbookTooltip id="token-embedding">Tokenization（分词 / 切分为词元）</TextbookTooltip>
+						<TextbookTooltip id="token-embedding">词元化</TextbookTooltip>
 					</div>{/if}
 				{#each $tokens as token, index}
 					<div class="cell" class:last={index === $tokens.length - 1}>
@@ -196,8 +196,7 @@
 				<!-- token id and embedding -->
 				<div class="column token-embedding embedding-detail">
 					<div class="subtitle flex items-center gap-1">
-						<TextbookTooltip id="token-embedding"><span>词元<br />嵌入</span></TextbookTooltip
-						>
+						<TextbookTooltip id="token-embedding"><span>词元<br />嵌入</span></TextbookTooltip>
 						<!-- <HelpPopover
 							id="token-embedding"
 							goTo="article-token-embedding"
@@ -244,7 +243,7 @@
 				<div class="column embedding-detail position-embedding">
 					<div class="subtitle flex gap-1">
 						<TextbookTooltip id="positional-encoding">
-							<span>位置<br />编码</span>
+							<span>位置<br />嵌入</span>
 						</TextbookTooltip>
 						<!-- <HelpPopover
 							id="position-embedding"
@@ -280,7 +279,7 @@
 					{/each}
 				</div>
 				<Tooltip triggeredBy=".embedding .vector" class="popover" placement="right"
-					>vector({$modelMeta.dimension})</Tooltip
+					>向量（{$modelMeta.dimension} 维）</Tooltip
 				>
 				<!-- <PositionalEncodingPopover triggeredBy=".position-embedding" /> -->
 			{/if}
@@ -295,7 +294,7 @@
 				{/each}
 			</div>
 			<Tooltip triggeredBy=".step.embedding .vector" class="popover" placement="right"
-				>vector({$modelMeta.dimension})</Tooltip
+				>向量（{$modelMeta.dimension} 维）</Tooltip
 			>
 		</div>
 	</div>

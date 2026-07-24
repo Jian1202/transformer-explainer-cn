@@ -132,7 +132,7 @@
 			</div>
 		</div>
 		<div class="viz-container">
-			<div class="subtitle">位置编码矩阵</div>
+			<div class="subtitle">位置嵌入矩阵</div>
 			<div class="subcontent viz-subcontent">
 				<div class="chart-container mx-auto">
 					<div class="embed-dim-axis">

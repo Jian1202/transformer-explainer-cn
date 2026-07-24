@@ -523,7 +523,7 @@
 			/>
 
 			<div class="matrix-label flex items-center gap-1">
-				Attention <ZoomInOutline></ZoomInOutline>
+				注意力 <ZoomInOutline></ZoomInOutline>
 			</div>
 		</div>
 	</div>
