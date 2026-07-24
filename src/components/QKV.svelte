@@ -11,13 +11,13 @@
 	const embeddingVectorColor = 'bg-gray-300';
 
 	let vectorHoverIdx: number | null = null;
-	const queryVectorColor = 'bg-blue-200';
-	const keyVectorColor = 'bg-red-200';
-	const valVectorColor = 'bg-green-200';
+	const queryVectorColor = 'bg-blue-300';
+	const keyVectorColor = 'bg-red-300';
+	const valVectorColor = 'bg-green-300';
 
-	const queryHeadVectorColor = 'bg-blue-300';
-	const keyHeadVectorColor = 'bg-red-300';
-	const valHeadVectorColor = 'bg-green-300';
+	const queryHeadVectorColor = 'bg-blue-500';
+	const keyHeadVectorColor = 'bg-red-500';
+	const valHeadVectorColor = 'bg-green-500';
 
 	// attentionHeadIdx subscribe
 	const headCursors = {};
@@ -141,17 +141,18 @@
 				.sub-vector {
 					user-select: none;
 					font-size: 1rem;
+					opacity: 0.8;
 					span {
-						opacity: 0.3;
+						opacity: 0.45;
 					}
 					&.query {
-						color: theme('colors.blue.500');
+						color: theme('colors.blue.600');
 					}
 					&.key {
-						color: theme('colors.red.500');
+						color: theme('colors.red.600');
 					}
 					&.value {
-						color: theme('colors.green.500');
+						color: theme('colors.green.600');
 					}
 
 					.head-rest {

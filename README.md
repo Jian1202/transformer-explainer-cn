@@ -96,12 +96,12 @@ Transformer Explainer 由佐治亚理工学院团队开发：
 如需在研究中引用本项目，请使用以下 BibTeX 格式：
 
 ```bibtex
-@article{cho2024transformer,
-  title = {Transformer Explainer: Interactive Learning of Text-Generative Models},
-  shorttitle = {Transformer Explainer},
-  author = {Cho, Aeree and Kim, Grace C. and Karpekov, Alexander and Helbling, Alec and Wang, Zijie J. and Lee, Seongmin and Hoover, Benjamin and Chau, Duen Horng},
-  journal = {IEEE VIS Poster},
-  year = {2024}
+@inproceedings{cho2026transformer,
+  title={Transformer Explainer: Learning LLM Transformers with Interactive Visual Explanation and Experimentation},
+  author={Cho, Aeree and Kim, Grace C and Karpekov, Alexander and Lee, Seongmin and Helbling, Alec and Hoover, Benjamin and Wang, Zijie J and Kahng, Minsuk and Chau, Duen Horng},
+  booktitle={Proceedings of the 2026 CHI Conference on Human Factors in Computing Systems},
+  pages={1--21},
+  year={2026}
 }
 ```
 

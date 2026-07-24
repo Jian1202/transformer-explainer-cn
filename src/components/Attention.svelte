@@ -23,11 +23,11 @@
 	const blockId = getContext('block-id');
 	$: isAttentionExpanded = $expandedBlock.id === blockId;
 
-	const queryHeadVectorColor = 'bg-blue-300';
-	const keyHeadVectorColor = 'bg-red-300';
-	const valHeadVectorColor = 'bg-green-300';
+	const queryHeadVectorColor = 'bg-blue-400';
+	const keyHeadVectorColor = 'bg-red-400';
+	const valHeadVectorColor = 'bg-green-400';
 
-	const outputVectorColor = 'bg-purple-300';
+	const outputVectorColor = 'bg-purple-500';
 
 	let isHovered = false;
 

@@ -26,7 +26,11 @@
 	</div>
 	<div class="icons flex items-center gap-3">
 		<!-- arxiv -->
-		<a href="https://arxiv.org/abs/2408.04619" target="_blank" data-click="pdf-btn">
+		<a
+			href="https://dl.acm.org/doi/pdf/10.1145/3772318.3791725"
+			target="_blank"
+			data-click="pdf-btn"
+		>
 			<svg
 				class="h-6 w-6 text-gray-800 dark:text-white"
 				aria-hidden="true"

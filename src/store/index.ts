@@ -79,8 +79,8 @@ export const selectedModel = writable(initialSelectedModel);
 export const modelMeta = derived(selectedModel, ($selectedModel) => modelMetaMap[$selectedModel]);
 
 // Temperature setting
-export const initialtTemperature = 0.8;
-export const temperature = writable(initialtTemperature);
+export const initialTemperature = 0.8;
+export const temperature = writable(initialTemperature);
 
 // Sampling
 export const sampling = writable<Sampling>({ type: 'top-k', value: 5 });
@@ -109,12 +109,14 @@ export const hoveredMatrixCell = writable({ row: null, col: null });
 export const weightPopover = writable();
 export const tooltip = writable();
 
-export const isMobile = readable(detectDevice());
+export const isMobile = readable(false, (set) => {
+	if (typeof window !== 'undefined') {
+		// Only run in browser environment
+		const userAgent = navigator.userAgent.toLowerCase();
+		set(/android|iphone|ipad|ipod/i.test(userAgent));
+	}
+	return () => {}; // Cleanup function
+});
 
 // User identification
 export const userId = writable<string | null>(null);
-
-function detectDevice() {
-	const userAgent = navigator.userAgent.toLowerCase();
-	return /android|iphone|ipad|ipod/i.test(userAgent);
-}
