@@ -2,16 +2,12 @@
 
 Transformer Explainer 中文版是在[原项目](https://github.com/poloclub/transformer-explainer)基础上维护的中文教学版本。它通过浏览器内运行的 GPT-2 Small 和交互式可视化，帮助中文读者理解词元化、嵌入、自注意力、MLP、采样等文本生成环节。
 
-[![MIT License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
-[![CHI 2026](https://img.shields.io/badge/CHI-2026-blue)](https://dl.acm.org/doi/10.1145/3772318.3791725)
-
-<a href="https://youtu.be/TFUc41G2ikY" target="_blank">
-  <img width="100%" src="https://github.com/user-attachments/assets/0a4d8888-6555-4df5-bc71-77f1299115c3" alt="Transformer Explainer 原版演示视频">
-</a>
+[MIT License](https://opensource.org/licenses/MIT)
+[CHI 2026](https://dl.acm.org/doi/10.1145/3772318.3791725)
 
 ## 在线体验
 
-- 中文版：[https://jian1202.github.io/transformer-explainer-cn/](https://jian1202.github.io/transformer-explainer-cn/)
+- 中文版：[https://Jian1202.github.io/transformer-explainer-cn/](https://Jian1202.github.io/transformer-explainer-cn/)
 - 英文原版：[https://poloclub.github.io/transformer-explainer/](https://poloclub.github.io/transformer-explainer/)
 
 ## 项目边界
@@ -21,6 +17,8 @@ Transformer Explainer 中文版是在[原项目](https://github.com/poloclub/tra
 - 中文文本可以由 GPT-2 分词器编码，但切分方式和生成效果不等同于中文模型；建议使用英文提示文本体验实时生成。
 - 中文版包含词元计数、窄屏布局、部署路径等本地适配，与原版并非逐文件完全一致。
 - 上游更新采用人工审核、选择性同步，避免自动同步覆盖本地化内容。
+
+
 
 ## 功能
 
@@ -56,7 +54,8 @@ npm run check
 npm run build
 ```
 
-`npm run check:localization` 是只读扫描，不会自动改写源码。生产构建使用 `/transformer-explainer-cn` 基础路径，以适配 GitHub Pages。
+`npm run check:localization` 是只读扫描，不会自动改写源码。  
+生产构建使用 `/transformer-explainer-cn` 基础路径，以适配 GitHub Pages。
 
 ## 目录说明
 
@@ -74,9 +73,13 @@ static/
 └── preview/          # 分享预览图
 ```
 
+
+
 ## 上游维护
 
-本仓库保留 `upstream` 合并关系。同步上游时会人工检查依赖、模型逻辑、教学事实、部署配置和中文文案，不采用定时自动同步工作流。若修改用户可见字符串，请同时运行汉化检查，并确认技术专名属于允许清单或已有人工审核上下文。
+本仓库保留 `upstream` 合并关系。  
+同步上游时会人工检查依赖、模型逻辑、教学事实、部署配置和中文文案，不采用定时自动同步工作流。  
+若修改用户可见字符串，请同时运行汉化检查，并确认技术专名属于允许清单或已有人工审核上下文。
 
 ## 论文与原项目团队
 
@@ -84,7 +87,8 @@ static/
 
 [Transformer Explainer: Learning LLM Transformers with Interactive Visual Explanation and Experimentations](https://dl.acm.org/doi/10.1145/3772318.3791725), Proceedings of the 2026 CHI Conference on Human Factors in Computing Systems.
 
-原项目由 Aeree Cho、Grace C. Kim、Alexander Karpekov、Seongmin Lee、Alec Helbling、Benjamin Hoover、Zijie J. Wang、Minsuk Kahng 和 Duen Horng Chau 等佐治亚理工学院研究者共同完成。请以[原仓库](https://github.com/poloclub/transformer-explainer)和正式论文中的署名为准。
+原项目由 Aeree Cho、Grace C. Kim、Alexander Karpekov、Seongmin Lee、Alec Helbling、Benjamin Hoover、Zijie J. Wang、Minsuk Kahng 和 Duen Horng Chau 等佐治亚理工学院研究者共同完成。  
+请以[原仓库](https://github.com/poloclub/transformer-explainer)和正式论文中的署名为准。
 
 ```bibtex
 @inproceedings{cho2026transformer,
@@ -96,6 +100,11 @@ static/
 }
 ```
 
+
+
 ## 许可证与反馈
 
-项目沿用原项目的 [MIT License](LICENSE)。翻译、教学表述和中文版适配问题可在[中文版仓库](https://github.com/Jian1202/transformer-explainer-cn/issues)反馈；原版功能问题也可参考[上游 Issues](https://github.com/poloclub/transformer-explainer/issues)。
+项目沿用原项目的 [MIT License](LICENSE)。
+
+翻译、教学表述和中文版适配问题可在[中文版仓库](https://github.com/Jian1202/transformer-explainer-cn/issues)反馈；  
+原版功能问题也可参考[上游 Issues](https://github.com/poloclub/transformer-explainer/issues)。
