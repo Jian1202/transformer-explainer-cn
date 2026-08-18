@@ -48,6 +48,9 @@
 		: null;
 	$: exceedLimit = tokenCount !== null && tokenCount > tokenLimit;
 
+	// 检测非英文输入（中文、日文、韩文等）
+	$: hasNonEnglish = /[\u4e00-\u9fff\u3040-\u309f\u30a0-\u30ff\uac00-\ud7af\u0600-\u06ff]/.test(inputTextTemp);
+
 	// Text input
 	const onFocusInput = (e) => {
 		let formattedString = (inputTextTemp + predictedTokenTemp).replace(/[\s\n]+/g, ' ');
@@ -261,6 +264,11 @@
 				</span>
 			</div>
 		</div>
+		{#if hasNonEnglish}
+			<div class="non-english-warning" role="alert">
+				⚠️ {uiText.input.nonEnglishWarning}
+			</div>
+		{/if}
 		<button
 			data-click="generate-btn"
 			disabled={disabled || exceedLimit}
@@ -431,6 +439,16 @@
 		.limit-exceeded {
 			color: theme('colors.red.600');
 		}
+	}
+	.non-english-warning {
+		margin-top: 0.5rem;
+		padding: 0.5rem 0.75rem;
+		border-radius: 0.5rem;
+		background-color: theme('colors.amber.50');
+		border: 1px solid theme('colors.amber.300');
+		color: theme('colors.amber.800');
+		font-size: 0.78rem;
+		line-height: 1.4;
 	}
 	:global(.generate-button) {
 		padding: 0.4rem 0.8rem;

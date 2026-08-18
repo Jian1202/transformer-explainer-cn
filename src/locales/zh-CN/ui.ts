@@ -8,6 +8,7 @@ export const uiText = {
 		tokenCount: (count: number, limit: number) => `${count} / ${limit} 个词元`,
 		tokenLimitExceeded: (limit: number) => `已超过 ${limit} 个词元，请缩短输入后再生成。`,
 		languageHint: '当前使用 GPT-2 Small，英文输入效果更稳定。',
+		nonEnglishWarning: '检测到非英文输入。GPT-2 仅支持英文，中文等非英文字符会被拆为字节碎片，生成结果无意义。建议使用英文输入或切换示例。',
 		mobileHint: '移动端可体验内置示例；建议横屏或使用桌面端查看完整可视化。'
 	},
 	model: {
