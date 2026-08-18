@@ -115,13 +115,56 @@ export const adjustTemperature = async ({
 
 export const getTokenization = async (tokenizer: PreTrainedTokenizer, input: string) => {
 	const token_ids = tokenizer.encode(input);
-	const input_tokens = token_ids.map((id) => tokenizer.decode([id])).flat();
+	const input_tokens = buildTokenDisplay(tokenizer, token_ids);
 
 	return {
 		token_ids,
 		input_tokens
 	};
 };
+
+/**
+ * 为每个 token_id 生成可读的显示文本。
+ * GPT-2 BPE 将多字节字符（中文、日文、emoji 等）拆为多个字节级 token，
+ * 单独解码显示为 `\ufffd`（替换字符）。
+ *
+ * 策略：将连续字节碎片合并，在第一个碎片位置显示完整字符，
+ * 后续碎片显示为空，保持 token 数量不变（可视化列对齐需要）。
+ */
+function buildTokenDisplay(
+	tokenizer: PreTrainedTokenizer,
+	token_ids: number[]
+): string[] {
+	const result: string[] = [];
+	let pendingIds: number[] = [];
+
+	const flush = () => {
+		if (pendingIds.length === 0) return;
+		const merged = tokenizer.decode(pendingIds);
+		// 第一个碎片显示完整字符，其余显示空字符串
+		for (let i = 0; i < pendingIds.length; i++) {
+			result.push(i === 0 ? merged : '');
+		}
+		pendingIds = [];
+	};
+
+	const isByteFragment = (id: number): boolean => {
+		const decoded = tokenizer.decode([id]);
+		return decoded.includes('\ufffd') || decoded.length === 0;
+	};
+
+	for (const id of token_ids) {
+		if (isByteFragment(id)) {
+			pendingIds.push(id);
+		} else {
+			flush();
+			pendingIds.push(id);
+		}
+	}
+	flush();
+
+	return result;
+}
 
 export const getData = async (token_ids: number[]) => {
 	try {
@@ -220,7 +263,7 @@ function topKSampling(
 	const output = filteredLogits.map((item, i) => ({
 		...item,
 		rank: i,
-		token: formatTokenForDisplay(tokenizer.decode([item.tokenId])),
+		token: decodeSingleToken(tokenizer, item.tokenId),
 		expLogit: expLogits[i],
 		probability: probabilities[i]
 	}));
@@ -277,7 +320,7 @@ function topPSampling(
 	const output = scaledLogits.map((item, i) => ({
 		...item,
 		rank: i,
-		token: formatTokenForDisplay(tokenizer.decode([item.tokenId])),
+		token: decodeSingleToken(tokenizer, item.tokenId),
 		expLogit: expLogits[i],
 		probability: newProbabilities[i] || 0,
 		topPProbability: probabilities[i], //original
@@ -301,12 +344,24 @@ function softmax(logits: number[]): { expLogits: number[]; probabilities: number
 
 // Helper function to format tokens for display
 function formatTokenForDisplay(token: string): string {
+	// 字节碎片替换字符 → 显示为 [byte] 标记
+	if (token.includes('\ufffd')) return '[byte]';
+
 	// Replace special whitespace characters with readable labels
 	return token
 		.replace(/\n/g, '[NEWLINE]')
 		.replace(/\t/g, '[TAB]')
 		.replace(/\r/g, '[CR]')
 		.replace(/\s{2,}/g, (match) => `[${match.length} SPACES]`); // Multiple spaces
+}
+
+/**
+ * 解码单个 token 用于概率条显示。
+ * 如果 token 是字节碎片，显示 [byte]；否则显示格式化后的文本。
+ */
+function decodeSingleToken(tokenizer: PreTrainedTokenizer, tokenId: number): string {
+	const decoded = tokenizer.decode([tokenId]);
+	return formatTokenForDisplay(decoded);
 }
 
 // Simulates the np.random.choice function in Python.
