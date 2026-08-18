@@ -119,6 +119,11 @@
 		overflow-x: auto;
 		overflow-y: hidden;
 		overscroll-behavior-x: contain;
+		// Hide native scrollbar — keep scroll functionality
+		scrollbar-width: none; // Firefox
+		&::-webkit-scrollbar {
+			display: none; // Chrome/Safari/Edge
+		}
 	}
 	.article {
 		padding-top: 2rem;
