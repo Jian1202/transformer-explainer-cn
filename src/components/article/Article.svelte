@@ -1,6 +1,4 @@
 <script>
-	import tailwindConfig from '../../../tailwind.config';
-	import resolveConfig from 'tailwindcss/resolveConfig';
 	import Katex from '~/utils/Katex.svelte';
 </script>
 

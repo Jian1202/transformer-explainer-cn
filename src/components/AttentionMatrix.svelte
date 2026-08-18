@@ -15,9 +15,7 @@
 	import { gsap } from '~/utils/gsap';
 	import { maskArray } from '~/utils/array';
 	import { getContext, onMount } from 'svelte';
-	import resolveConfig from 'tailwindcss/resolveConfig';
-	import tailwindConfig from '../../tailwind.config';
-	import * as d3 from 'd3';
+	import * as d3 from '~/utils/d3';
 	import Katex from '~/utils/Katex.svelte';
 	import { Tooltip } from 'flowbite-svelte';
 	import { ATTENTION_OUT } from '~/constants/opacity';
@@ -26,8 +24,7 @@
 	import TextbookTooltip from '~/components/common/TextbookTooltip.svelte';
 	import { textPages } from '~/utils/textbookPages';
 	import { highlightAttentionPath, removeAttentionPathHighlight } from '~/utils/textbook';
-
-	const { theme } = resolveConfig(tailwindConfig);
+	import { theme } from '~/utils/theme';
 
 	$: placeHolderData = Array($tokens.length)
 		.fill(0)

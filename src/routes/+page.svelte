@@ -21,7 +21,8 @@
 		isTextbookOpen,
 		userId,
 		gpt2Tokenizer,
-		modelLoadStatus
+		modelLoadStatus,
+		modelMeta
 	} from '~/store';
 	import { PreTrainedTokenizer } from '@xenova/transformers';
 	import Sankey from '~/components/Sankey.svelte';
@@ -92,7 +93,7 @@
 
 	// Fetch model onnx
 	const fetchModel = async () => {
-		const chunkNum = 63; //TODO: move to model meta
+		const chunkNum = $modelMeta.chunkTotal;
 		const chunkUrls = Array(chunkNum)
 			.fill(0)
 			.map((d, i) => `${base}/model-v2/gpt2.onnx.part${i}`);
@@ -281,7 +282,6 @@
 		position: relative;
 		width: 100%;
 		height: 100%;
-		position: relative;
 		display: grid;
 		grid-template-columns: auto 3.5fr 0.5fr 0.5fr;
 

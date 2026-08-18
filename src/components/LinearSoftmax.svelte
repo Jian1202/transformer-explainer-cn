@@ -4,8 +4,6 @@
 	import classNames from 'classnames';
 	import { gsap, Flip } from '~/utils/gsap';
 	import { tick } from 'svelte';
-	import tailwindConfig from '../../tailwind.config';
-	import resolveConfig from 'tailwindcss/resolveConfig';
 	import {
 		rootRem,
 		temperature,
