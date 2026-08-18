@@ -10,10 +10,8 @@
 		isOnBlockTransition
 	} from '~/store';
 	import { tooltipText } from '~/locales/zh-CN/tooltips';
-	import * as d3 from 'd3';
+	import * as d3 from '~/utils/d3';
 	import { onMount, tick } from 'svelte';
-	import resolveConfig from 'tailwindcss/resolveConfig';
-	import tailwindConfig from '../../tailwind.config';
 	import { gradientMap } from '~/constants/gradient';
 	import {
 		ATTENTION_HEAD_1,
@@ -25,8 +23,7 @@
 		TRANSFORMER_BLOCKS
 	} from '~/constants/opacity';
 	import { textPages } from '~/utils/textbookPages';
-
-	const { theme } = resolveConfig(tailwindConfig);
+	import { theme } from '~/utils/theme';
 
 	let svgBackEl: HTMLOrSVGElement;
 	let svgEl: HTMLOrSVGElement;

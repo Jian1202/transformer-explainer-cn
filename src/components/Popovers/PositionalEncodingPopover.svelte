@@ -1,7 +1,7 @@
 <script lang="ts">
 	import classNames from 'classnames';
 	import { Popover } from 'flowbite-svelte';
-	import * as d3 from 'd3';
+	import * as d3 from '~/utils/d3';
 	import { onMount } from 'svelte';
 	import { writable } from 'svelte/store';
 	import { tokens } from '~/store';

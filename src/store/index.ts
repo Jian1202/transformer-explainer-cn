@@ -1,12 +1,9 @@
 import { writable, derived, readable } from 'svelte/store';
 import * as ort from 'onnxruntime-web';
-import tailwindConfig from '../../tailwind.config';
-import resolveConfig from 'tailwindcss/resolveConfig';
 import { ex0 } from '~/constants/examples';
 import { textPages } from '~/utils/textbookPages';
 import type { PreTrainedTokenizer } from '@xenova/transformers';
-
-const { theme } = resolveConfig(tailwindConfig);
+import { theme } from '~/utils/theme';
 
 export const attentionHeadIdxTemp = writable(0);
 export const attentionHeadIdx = writable(0);

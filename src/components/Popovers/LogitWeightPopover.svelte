@@ -1,18 +1,15 @@
 <script lang="ts">
 	import { modelMeta, tokens, rootRem } from '~/store';
-	import * as d3 from 'd3';
+	import * as d3 from '~/utils/d3';
 	import { gsap } from '~/utils/gsap';
 	import Matrix from '~/components/common/Matrix.svelte';
 	import { onDestroy, onMount } from 'svelte';
-	import resolveConfig from 'tailwindcss/resolveConfig';
-	import tailwindConfig from '../../../tailwind.config';
 	import HelpPopover from '../common/HelpPopover.svelte';
 	import WeightPopoverCard from '../common/WeightPopoverCard.svelte';
 	import Katex from '~/utils/Katex.svelte';
+	import { theme } from '~/utils/theme';
 
 	export let isOpen = true;
-
-	const { theme } = resolveConfig(tailwindConfig);
 
 	const tokenGap = 6;
 

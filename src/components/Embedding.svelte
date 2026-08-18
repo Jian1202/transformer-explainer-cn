@@ -14,18 +14,15 @@
 	import { gsap, Flip } from '~/utils/gsap';
 	import { tick, setContext, getContext, onMount } from 'svelte';
 	import VectorCanvas from './common/VectorCanvas.svelte';
-	import * as d3 from 'd3';
+	import * as d3 from '~/utils/d3';
 	import HelpPopover from './common/HelpPopover.svelte';
-	import tailwindConfig from '../../tailwind.config';
-	import resolveConfig from 'tailwindcss/resolveConfig';
 	import { ga } from '~/utils/event';
 	import { Tooltip } from 'flowbite-svelte';
 	import { ZoomInOutline } from 'flowbite-svelte-icons';
 
 	import TextbookTooltip from './common/TextbookTooltip.svelte';
 	import { textPages } from '~/utils/textbookPages';
-
-	const { theme } = resolveConfig(tailwindConfig);
+	import { theme } from '~/utils/theme';
 
 	export let className: string | undefined = undefined;
 
